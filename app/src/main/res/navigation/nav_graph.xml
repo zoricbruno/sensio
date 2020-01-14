@@ -9,5 +9,14 @@
         android:id="@+id/sensorSelectionFragment"
         android:name="hr.mosaicapps.sensio.ui.sensorselection.SensorSelectionFragment"
         android:label="fragment_sensor_selection"
-        tools:layout="@layout/fragment_sensor_selection" />
+        tools:layout="@layout/fragment_sensor_selection" >
+        <action
+            android:id="@+id/action_sensorSelectionFragment_to_temperatureFragment"
+            app:destination="@id/temperatureFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/temperatureFragment"
+        android:name="hr.mosaicapps.sensio.ui.temperature.TemperatureFragment"
+        android:label="@string/fragment_temperature_title"
+        tools:layout="@layout/fragment_temperature" />
 </navigation>

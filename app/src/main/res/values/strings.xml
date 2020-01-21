@@ -5,4 +5,6 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="menuitem_temperature_label">Thermometer</string>
     <string name="fragment_temperature_title">Temperature</string>
+    <string name="temperature_min">-100\u2103</string>
+    <string name="temperature_max">100\u2103</string>
 </resources>

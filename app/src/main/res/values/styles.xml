@@ -8,4 +8,15 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+    <style name="ColdHorizontalProgressBar" parent="android:Widget.ProgressBar.Horizontal">
+        <item name="android:progressTint">@color/DodgerBlue</item>
+        <item name="android:progressBackgroundTint">@color/PaleGoldenrod</item>
+        </style>
+
+    <style name="HotHorizontalProgressBar" parent="android:Widget.ProgressBar.Horizontal">
+        <item name="android:progressTint">@color/IndianRed</item>
+        <item name="android:progressBackgroundTint">@color/PaleGoldenrod</item>
+
+    </style>
+
 </resources>

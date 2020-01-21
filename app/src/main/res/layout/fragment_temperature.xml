@@ -1,14 +1,80 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.temperature.TemperatureFragment">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="@color/temperature_main_color">
 
-    <!-- TODO: Update blank fragment layout -->
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guide_center_vertical"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.5"/>
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guide_center_horizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.5"/>
+
     <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:id="@+id/temperature_display_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintVertical_bias="0.25"
+        android:textSize="@dimen/text_size_large"
+        tools:text="0.0\u2103"/>
 
-</FrameLayout>
+    <TextView
+        android:id="@+id/temperature_min_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/temperature_negative_bar"
+        android:layout_margin="@dimen/margin_small"
+        android:text="@string/temperature_min"/>
+
+    <ProgressBar
+        android:id="@+id/temperature_negative_bar"
+        android:layout_width="@dimen/match_constraint"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@id/temperature_min_label"
+        app:layout_constraintEnd_toEndOf="@id/guide_center_vertical"
+        style="@style/ColdHorizontalProgressBar"
+        android:rotation="180"
+        tools:progress="50"/>
+
+    <ProgressBar
+        android:id="@+id/temperature_positive_bar"
+        android:layout_width="@dimen/match_constraint"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@id/guide_center_vertical"
+        app:layout_constraintEnd_toStartOf="@id/temperature_max_label"
+        style="@style/HotHorizontalProgressBar"
+        tools:progress="50"/>
+
+    <TextView
+        android:id="@+id/temperature_max_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@id/temperature_positive_bar"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_margin="@dimen/margin_small"
+        android:text="@string/temperature_max"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
